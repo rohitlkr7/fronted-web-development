@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid coffee with media queries</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: antiquewhite;
+            margin-top: 50px;
+        }
+        #main{
+            width: 80%;
+            height: 400px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+           /* grid-template-rows: repeat(3,1fr);*/
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            margin: auto;
+            background-color:antiquewhite
+           
+        
+        }
+        .containt{
+            
+            background-color: aliceblue;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+       
+        h2{
+           color: rgb(243, 142, 11);
+        }
+        p{
+            padding-top: 18px;
+            padding-left: 10px;
+        }
+        .con{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            padding-top: 13px;
+        }
+       @media all and (min-width:450px) and (max-width:750px){
+        #main{
+            grid-template-columns: repeat(2,1fr);
+
+        }
+       }
+       @media all and (min-width:200px) and (max-width:490px){
+        #main{
+            grid-template-columns: repeat(1,1fr);
+
+        }
+       }
+    
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+            <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+          <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+        <div class="containt">
+           <div class="con"><h3>Cappuccino</h3>  <h2>$49</h2></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta magnokiya.</p>
+        </div>
+    </div>
+</body>
+</html>
