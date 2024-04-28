@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIRST NAME PRAVESH</title>
-</head>
-<body>
-    <h1>pravesh</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai employee management system</title>
+    <style>
+      #container {
+        width: 80%;
+        margin: auto;
+      }
+      h1 {
+        margin-left: 30%;
+        padding: 5px;
+      }
+      #mix {
+        padding: 5px;
+      }
+      table{
+        border: 1px solid black;
+        column-gap: 20px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: space-between;
+      }
+      #thead{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+      }
+      #datashow{
+        /* display: grid;
+        grid-template-columns: repeat(5,1fr); */
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Employee Management System</h1>
+
+      <!-- THIS IS START OPTION SECTION -->
+
+      <div id="mix">
+        <label>Filter by Department</label>
+        <select name="" id="">
+          <option value="">Select Department</option>
+          <option value="">hr</option>
+          <option value="">finance</option>
+          <option value="">marketing</option>
+          <option value="">engineering</option>
+          <option value="">operations</option>
+        </select>
+        <label >Filter by Gender</label>
+        <select name="" id="">
+          <option value="">Select gender</option>
+          <option value="">male</option>
+          <option value="">female</option>
+        </select>
+        <label>sort by salary</label>
+        <select name="" id="">
+          <option value="">Select order</option>
+          <option value="">low to high</option>
+          <option value="">high to low</option>
+        </select>
+      </div>
+      <!-- THIS IS END OPTION SECTION -->
+      <table id="table">
+        <thead id="thead">
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody id="datashow">
+
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      let container = document.getElementById("container");
+      let datashow = document.getElementById("datashow");
+      async function getdata() {
+        let res = await fetch(
+          "https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees"
+        );
+        let Data = await res.json();
+        console.log(Data.data);
+        Displaydata(Data.data);
+      }
+      getdata();
+
+      function Displaydata(arr) {
+        arr.forEach((el, i) => {
+          let table = document.createElement("tbody");
+          let s_number = document.createElement("td");
+          s_number.textContent = ` ${el.id}`;
+          let name = document.createElement("td");
+          name.textContent = `${el.name}`;
+          let gender = document.createElement("td");
+          gender.textContent = ` ${el.gender}`;
+          let department = document.createElement("td");
+          department.textContent = `${el.department}`;
+          let salary = document.createElement("td");
+          salary.textContent = `${el.salary}`;
+
+          table.append(s_number, name, gender, department, salary);
+          datashow.append(table);
+        });
+      }
+    </script>
+  </body>
 </html>
-
-
